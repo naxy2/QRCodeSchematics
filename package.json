@@ -1,0 +1,19 @@
+{
+  "name": "linktoqr",
+  "version": "1.0.0",
+  "description": "convert links into minecraft schematics resembling QR codes",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "minecraft",
+    "schematic",
+    "QR"
+  ],
+  "author": "Diego",
+  "license": "ISC",
+  "dependencies": {
+    "qrcode-generator": "^1.4.4"
+  }
+}
