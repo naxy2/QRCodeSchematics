@@ -54,13 +54,18 @@ if (i == bits[bits.length-1].length){
     altezza--;
 }
 
+bianchi = 0
+neri = 0
+
 stringaBlocchi = ""
 for (i=0; i<bits.length; i++){
     for(j=0; j<bits[i].length; j++){
         if (bits[bits.length-1-i][j] == 1){
             stringaBlocchi += "3B, "
+            bianchi++
         }else{
             stringaBlocchi += "12B, "
+            neri++
         }
     }
 }
@@ -90,6 +95,8 @@ fs.writeFile("./steps/in/"+nome+".snbt",
 '}', ()=>{
     console.log(qr.createASCII())
     exec("java -cp server.jar net.minecraft.data.Main --client --input ./steps/in --output ./steps/out", (error, stdout, strerr)=>{
-        fs.rename(`./steps/out/${nome}.nbt`, `./steps/out/${nome}.schematic`, ()=>{console.log("end")})
+        fs.rename(`./steps/out/${nome}.nbt`, `./steps/out/${nome}.schematic`, ()=>{
+            console.log(`Bianchi: ${bianchi}\nNeri: ${neri}`)
+        })
     });
 })
